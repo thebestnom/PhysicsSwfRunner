@@ -9,7 +9,10 @@
 		<script type="module">
 			import { playFile } from "./index.js";
 			const urlParams = new URLSearchParams(window.location.search);
-			playFile(urlParams.get('file_to_play'));
+			const fileToPlay = urlParams.get('file_to_play');
+			if(fileToPlay) {
+				playFile(fileToPlay);
+			}
 			// ./PhisicaCourses/41/b-041-02-03-03b-end.swf
 		</script>
 	</body>
