@@ -11,9 +11,10 @@ function to_ul(obj) {
     li = document.createElement("li");
     li.className = "tree__list__item";
 
-    let childHtml = document.createElement("a");
+    let childHtml;
     // if the child has a 'folder' prop on its own, call me again
     if (child.children) {
+      childHtml = document.createElement("div");
       childHtml.className = "tree__list__item--withChildren";
       childHtml.appendChild(document.createTextNode(child.name));
       childHtml.onclick = function() {
@@ -23,6 +24,7 @@ function to_ul(obj) {
       li.appendChild(childHtml);
       li.appendChild(to_ul(child));
     } else {
+      childHtml = document.createElement("a");
       childHtml.appendChild(document.createTextNode(child.name));
       childHtml.href = `?file_to_play=${child.fullPath}`;
       li.appendChild(childHtml);
