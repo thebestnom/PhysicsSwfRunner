@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="module" src="./index.js"></script>
+	</head>
+	<body dir="rtl">
+		<div id="container"></div>
+		<div id="right_container"></div>
+		<script type="module">
+			import { playFile } from "./index.js";
+			const urlParams = new URLSearchParams(window.location.search);
+			playFile(urlParams.get('file_to_play'));
+			// ./PhisicaCourses/41/b-041-02-03-03b-end.swf
+		</script>
+	</body>
+</html>
