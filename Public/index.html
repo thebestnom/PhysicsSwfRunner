@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script type="module" src="./index.js"></script>
-	</head>
-	<body dir="rtl">
-		<div id="container"></div>
-		<div id="right_container"></div>
-		<script type="module">
-			import { playFile } from "./index.js";
-			const urlParams = new URLSearchParams(window.location.search);
-			const fileToPlay = urlParams.get('file_to_play');
-			if(fileToPlay) {
-				playFile(fileToPlay);
-			}
-			// ./PhisicaCourses/41/b-041-02-03-03b-end.swf
-		</script>
-	</body>
+  <head>
+    <script type="module" src="./index.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body dir="rtl">
+    <div id="mainContainer">
+      <div id="fileTreeContainer"></div>
+      <div id="swfPlayerContainer"></div>
+    </div>
+    <script type="module">
+      import { playFile } from "./index.js";
+      const urlParams = new URLSearchParams(window.location.search);
+      const fileToPlay = urlParams.get("file_to_play");
+      if (fileToPlay) {
+        playFile(fileToPlay);
+      }
+      // ./PhisicaCourses/41/b-041-02-03-03b-end.swf
+    </script>
+  </body>
 </html>
