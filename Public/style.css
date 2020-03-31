@@ -1,3 +1,7 @@
+html {
+  overflow-y: scroll;
+}
+
 body {
   margin: 0;
 }
@@ -7,7 +11,7 @@ body {
 }
 
 #fileTreeContainer {
-  width: 25vw;
+  width: 20vw;
   background-color: #dddddd;
 }
 
@@ -19,6 +23,7 @@ body {
 
 .tree__list {
   list-style: none;
+  padding-right: 8%;
 }
 
 .tree__list__item > * {
@@ -34,8 +39,16 @@ body {
   cursor: pointer;
 }
 
+.tree__list__item :not(.tree__list__item--withChildren) {
+  margin-top: 4px;
+}
+
 .tree__list__item > *:not(.tree__list__item--withChildren):hover {
   color: blue;
+}
+
+.tree__list__item--withChildren {
+  margin: 10px 0;
 }
 
 .tree__list__item--withChildren:hover {
