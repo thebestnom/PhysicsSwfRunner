@@ -27,8 +27,8 @@ function to_ul(obj) {
       childHtml = document.createElement("a");
       childHtml.appendChild(document.createTextNode(child.name));
       // childHtml.href = `?file_to_play=${child.fullPath}`;
-      childHtml.onclick = () => playFile(child.fullPath);
-	  li.appendChild(childHtml);
+      childHtml.onclick = () => playFiles(child.paths);
+      li.appendChild(childHtml);
     }
     ul.appendChild(li);
   }
@@ -45,7 +45,6 @@ window.addEventListener("DOMContentLoaded", async event => {
 
   swfPlayerContainer = document.getElementById("swfPlayerContainer");
 
-
   const fileTreeContainer = document.getElementById("fileTreeContainer");
   const uls = to_ul(await responseBody.json());
   uls.hidden = false;
@@ -53,13 +52,15 @@ window.addEventListener("DOMContentLoaded", async event => {
   resolvePromise();
 });
 
-export async function playFile(file) {
+export async function playFiles(files) {
   await readyPromise;
-  
-  const ruffle = window.RufflePlayer.newest();
-  const rufflePlayer = ruffle.create_player();
   swfPlayerContainer.innerHTML = "";
-  swfPlayerContainer.appendChild(rufflePlayer);
   
-  rufflePlayer.stream_swf_url(file);
+  for(let file of files) {
+    const ruffle = window.RufflePlayer.newest();
+    const rufflePlayer = ruffle.create_player();
+    swfPlayerContainer.appendChild(rufflePlayer);
+
+    rufflePlayer.stream_swf_url(file);
+  }
 }

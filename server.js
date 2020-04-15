@@ -5,8 +5,7 @@ const path = require('path');
 function dirTreeSwf(filename) {
     const stats = fs.lstatSync(filename);
     const info = {
-        name: path.basename(filename),
-		fullPath: filename.replace("Public/", "")
+        name: path.basename(filename)
     };
 
     if (stats.isDirectory()) {
@@ -17,7 +16,9 @@ function dirTreeSwf(filename) {
 				info.children.push(fileInfo);
 			}
         }
-    }
+    } else {
+		info.paths = [filename.replace("Public/", "")]
+	}
 
     return info;
 }
