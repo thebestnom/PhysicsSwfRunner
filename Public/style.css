@@ -1,0 +1,56 @@
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+}
+
+#mainContainer {
+  display: flex;
+}
+
+#fileTreeContainer {
+  width: 20vw;
+  background-color: #dddddd;
+}
+
+#swfPlayerContainer {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.tree__list {
+  list-style: none;
+  padding-right: 8%;
+}
+
+.tree__list__item > * {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  background: none;
+  border: none;
+  outline: none;
+  color: #555555;
+}
+
+.tree__list__item:hover {
+  cursor: pointer;
+}
+
+.tree__list__item :not(.tree__list__item--withChildren) {
+  margin-top: 4px;
+}
+
+.tree__list__item > *:not(.tree__list__item--withChildren):hover {
+  color: blue;
+}
+
+.tree__list__item--withChildren {
+  margin: 10px 0;
+}
+
+.tree__list__item--withChildren:hover {
+  font-weight: bold;
+}
